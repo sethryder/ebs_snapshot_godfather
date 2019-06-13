@@ -1,12 +1,12 @@
 # ebs_snapshot_godfather
-A tool to manage EBS snapshot lifecycles following the Grandfather-father-son backup scheme. Built to run on a Lambda and triggered by a CloudWatch Rule (cron).
+A tool to manage EBS snapshot lifecycles following the Grandfather-father-son backup scheme. Built to run on Lambda and triggered by a CloudWatch Rule (cron).
 
 ## Why?
 
-I wanted a simple script to manage snapshots that could run in a lambda. AWS does have a "Lifecycle Manager" tool, but this does not support the Grandfather-father-son backup scheme.
+I wanted a simple script to manage snapshots that could run in a Lambda. AWS does offer a "Lifecycle Manager" tool but this does not support the Grandfather-father-son backup scheme.
 
 ## Required IAM Permissions
-This is a basic policy for running the lambda. You can limit its access even more to a specific volume if you would like.
+This is a basic policy for running the Lambda. You can limit its access even more to a specific volume if you would like.
 
 The `AWSLambdaBasicExecutionRole` policy is also required.
 
@@ -39,7 +39,7 @@ The `AWSLambdaBasicExecutionRole` policy is also required.
 
 ## CloudWatch Rule
 
-You can use a CloudWatch rule to trigger the lambda to run once a day. You will want to choose the lambda as the target for the rule. 
+You can use a CloudWatch rule to trigger the Lambda to run once a day. You will want to choose the Lambda as the target for the rule. 
 
 Select "Constant (JSON text)" and use the following JSON:
 
@@ -57,4 +57,4 @@ Make sure to change the `volume_id` to the volume you want to manage snapshots f
 
 ## Existing and Manual Snapshots
 
-If you make any manual snapshots or have any existing snapshots this tool will not touch them unless they have the `managed_tag` you defined and has the value set to `true`.
+If you make any manual snapshots or have any existing snapshots this tool will not touch them unless they have the `managed_tag` tag you defined and has the value set to `true`.
