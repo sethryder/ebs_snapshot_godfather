@@ -1,5 +1,5 @@
 # ebs_snapshot_godfather
-A tool to manage EBS snapshot lifecycles following the Grandfather-father-son backup scheme. Built to run on Lambda and triggered by a CloudWatch Rule (cron).
+A tool to manage EBS snapshot lifecycles following the Grandfather-father-son backup scheme. Built to run as a Lambda and triggered by a CloudWatch Rule (cron).
 
 ## Why?
 
